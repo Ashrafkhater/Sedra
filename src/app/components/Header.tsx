@@ -4,7 +4,12 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Header({ lang }: { lang: string }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // Either use these variables in your component or remove them
+  // For example, if you have:
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // And you're not using them, you can remove the state:
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
     { name: lang === 'ar' ? 'الرئيسية' : 'Home', href: '/' },
@@ -68,4 +73,4 @@ export default function Header({ lang }: { lang: string }) {
       </nav>
     </header>
   )
-}  
+}

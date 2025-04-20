@@ -1,15 +1,16 @@
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import { use } from 'react'
+// Remove the unused import
+// import { use } from 'react'
 
 export default function FAQPage({
   params
 }: {
   params: { lang: string }
 }) {
-  // Unwrap params with React.use()
-const { lang } = params
+  // Just use params directly since we're not using the 'use' function
+  const { lang } = params
   const isArabic = lang === 'ar'
   
   const faqs = [

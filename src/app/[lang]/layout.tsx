@@ -6,6 +6,24 @@ const amiri = Amiri({ subsets: ['arabic'], weight: ['400', '700'] })
 
 import WhatsAppButton from '../components/WhatsAppButton'
 
+// Add the fonts to the className or remove if not needed
+// For example:
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode
+  params: { lang: string }
+}) {
+  return (
+    <html lang={params.lang} dir={params.lang === 'ar' ? 'rtl' : 'ltr'}>
+      <body className={params.lang === 'ar' ? 'font-amiri' : 'font-inter'}>
+        {children}
+      </body>
+    </html>
+  )
+}
+
 export default function LangLayout({
   children,
   params,

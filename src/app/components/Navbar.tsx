@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Navbar({ lang }: { lang: string }) {
   const [isOpen, setIsOpen] = useState(false)

@@ -4,7 +4,12 @@ import { useRef } from 'react'
 
 export default function Hero({ lang }: { lang: string }) {
   const containerRef = useRef(null)
-  const { scrollY } = useScroll()
+  // Remove the unused 'y' variable or use it in your component
+  // For example, if you have:
+  const { scrollYProgress, y } = useScroll();
+  
+  // Change to:
+  const { scrollYProgress } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100])
 
   const isArabic = lang === 'ar'

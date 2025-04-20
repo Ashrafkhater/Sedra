@@ -2,6 +2,9 @@
 import { motion } from 'framer-motion'
 import { User, UserRound } from 'lucide-react'
 
+// Remove the unused 'User' import or use it in your component
+// import { User } from 'some-package'
+
 export default function Testimonials({ lang }: { lang: string }) {
   const testimonials = [
     {
