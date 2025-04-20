@@ -1,13 +1,16 @@
+import type { Metadata } from 'next'
 import { Inter, Amiri } from 'next/font/google'
-import '../globals.css'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
-const amiri = Amiri({ subsets: ['arabic'], weight: ['400', '700'] })
+const amiri = Amiri({ weight: ['400', '700'], subsets: ['arabic'] })
 
-import WhatsAppButton from '../components/WhatsAppButton'
+export const metadata: Metadata = {
+  title: 'Sedra Academy',
+  description: 'Learn Quran, Arabic and Islamic Studies Online',
+}
 
-// Add the fonts to the className or remove if not needed
-// For example:
+// Fix: Keep only one default export
 export default function RootLayout({
   children,
   params,
@@ -15,28 +18,22 @@ export default function RootLayout({
   children: React.ReactNode
   params: { lang: string }
 }) {
+  const isRtl = params.lang === 'ar';
   return (
-    <html lang={params.lang} dir={params.lang === 'ar' ? 'rtl' : 'ltr'}>
-      <body className={params.lang === 'ar' ? 'font-amiri' : 'font-inter'}>
+    <html lang={params.lang} dir={isRtl ? 'rtl' : 'ltr'}>
+      <body className={isRtl ? amiri.className : inter.className}>
         {children}
       </body>
     </html>
-  )
-}
-
-export default function LangLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: { lang: string }
-}) {
-  const isRtl = params.lang === 'ar';
-  
-  return (
-    <div dir={isRtl ? 'rtl' : 'ltr'} lang={params.lang} className={isRtl ? 'font-amiri' : 'font-poppins'}>
-      {children}
-      <WhatsAppButton lang={params.lang} />
-    </div>
   );
 }
+
+// Remove or comment out this duplicate export default
+// export default function LangLayout({ children, params }) {
+//   const isRtl = params.lang === 'ar';
+//   return (
+//     <div>
+//       {/* Your content */}
+//     </div>
+//   );
+// }
