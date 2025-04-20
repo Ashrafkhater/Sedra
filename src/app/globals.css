@@ -35,6 +35,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* RTL support */
+[dir="rtl"] .rtl\:space-x-reverse > * + * {
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+/* Custom styles for Arabic text */
+.font-arabic {
+  font-family: 'Amiri', serif;
+}
+
 /* ✅ شكل الجسم العام */
 body {
   color: rgb(var(--foreground-rgb));

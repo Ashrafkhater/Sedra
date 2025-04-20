@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Amiri } from 'next/font/google'
-import './globals.css'
+// Update the CSS import path to the correct location
+import '../globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 const amiri = Amiri({ weight: ['400', '700'], subsets: ['arabic'] })
@@ -10,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Learn Quran, Arabic and Islamic Studies Online',
 }
 
-// Fix: Keep only one default export
 export default function RootLayout({
   children,
   params,
@@ -27,13 +27,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// Remove or comment out this duplicate export default
-// export default function LangLayout({ children, params }) {
-//   const isRtl = params.lang === 'ar';
-//   return (
-//     <div>
-//       {/* Your content */}
-//     </div>
-//   );
-// }
