@@ -4,8 +4,8 @@ import { useRef } from 'react'
 
 export default function Hero({ lang }: { lang: string }) {
   const containerRef = useRef(null)
-  
-  // Fix: Use a single declaration of scrollYProgress
+
+  // ✅ تعريف وحيد بدون تكرار
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -100])
 
@@ -98,4 +98,5 @@ export default function Hero({ lang }: { lang: string }) {
         </div>
       </div>
     </div>
-)}
+  )
+}

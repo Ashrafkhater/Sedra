@@ -6,9 +6,11 @@ import { useState } from 'react'
 export default function Header({ lang }: { lang: string }) {
   // Either use these variables in your component or remove them
   // For example, if you have:
+  // إزالة المتغيرات غير المستخدمة
+  // بدلاً من:
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  // And you're not using them, you can remove the state:
+  // احذفها تماماً إذا كنت لا تستخدمها
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
